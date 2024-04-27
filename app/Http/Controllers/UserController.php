@@ -88,7 +88,11 @@ class UserController extends Controller
             return 'User not found';
         }
         $role = [1,5];
-        $user->roles()->attach($role);
+        $user->roles()->attach($role); 
+        // using the role removed
+        $user->roles()->detach($role);
+        // using the role updateCreated
+        $user->roles()->sync($role);
         
         // $onetoMany = User::with('roles')->get();
     // return $onetoMany;
